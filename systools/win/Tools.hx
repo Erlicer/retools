@@ -26,49 +26,39 @@
 package systools.win;
 
 class Tools {
-
 	/**
-	Optional iconResourceID argument is the _target_ ID of the icon i.e. the resource ID that
-	the supplied icon will be given in the resulting .exe. Defaults to 1 - normally
-	the main icon.
-	Peculiarly, the current SWHX.exe icon is at 104.
-	*/
-	public static function replaceExeIcon(exe: String, icon: String, ?iconResourceID: Int) : Bool {
+		Optional iconResourceID argument is the _target_ ID of the icon i.e. the resource ID that
+		the supplied icon will be given in the resulting .exe. Defaults to 1 - normally
+		the main icon.
+		Peculiarly, the current SWHX.exe icon is at 104.
+	 */
+	static var _win_replace_exe_icon:Dynamic;
 
-		if (iconResourceID==null)
-			iconResourceID=1;
+	public static function replaceExeIcon(exe:String, icon:String, ?iconResourceID:Int):Bool {
+		if (iconResourceID == null)
+			iconResourceID = 1;
 
 		// Only tries to load this if called.
-		if (_win_replace_exe_icon==null)
-		{
-			if (Sys.systemName()!="Windows")
+		if (_win_replace_exe_icon == null) {
+			if (Sys.systemName() != "Windows")
 				throw "Windows is required to run systools.win.Tools.replaceExeIcon";
 
-			_win_replace_exe_icon=systools.Loader.load("systools","win_replace_exe_icon",3);
+			_win_replace_exe_icon = systools.Loader.load("systools", "win_replace_exe_icon", 3);
 		}
 
-		return if(_win_replace_exe_icon(exe, icon,iconResourceID)) true else false;
+		return if (_win_replace_exe_icon(exe, icon, iconResourceID)) true else false;
 	}
-	static var _win_replace_exe_icon;
 
+	static var _win_create_process:Dynamic;
 
-	public static function createProcess( app: String, cmds: String, workingdir: String, hide: Bool, wait: Bool): Int {
-
-		if (_win_create_process==null)
-		{
-			if (Sys.systemName()!="Windows")
+	public static function createProcess(app:String, cmds:String, workingdir:String, hide:Bool, wait:Bool):Int {
+		if (_win_create_process == null) {
+			if (Sys.systemName() != "Windows")
 				throw "Windows is required to run systools.win.Tools.createProcess";
 
-			_win_create_process=systools.Loader.load("systools","win_create_process",5);
+			_win_create_process = systools.Loader.load("systools", "win_create_process", 5);
 		}
 
-		return _win_create_process
-				( app
-				, cmds
-				, workingdir
-				, if (hide) 1 else 0
-				, if (wait) 1 else 0
-				);
+		return _win_create_process(app, cmds, workingdir, if (hide) 1 else 0, if (wait) 1 else 0);
 	}
-	static var _win_create_process;
 }
