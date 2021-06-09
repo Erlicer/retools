@@ -1,8 +1,10 @@
 systools but fixed
 ========
 
-fork of neko-systools ( https://code.google.com/p/neko-systools ) for Haxe 4 and above
-
+Yes i think im reviving an old lib
+fork of giuppe/systools for Haxe 4 and above
+This should be fixed without any compiler issues now, if so then please open an issue in Github Issues.
+This includes the stdio definitions fix and the uncalled fix.
 
 ### Status ###
 The files are reupdated and are _mostly working_ for all platforms - which means that it should be working as well as normal systools.
