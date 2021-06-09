@@ -34,7 +34,7 @@
 	<file name="mac/registry.m" />
 </files>
 
-<target id="systools" output="${LIBPREFIX}systools${DBG}${LIBEXTRA}" tool="linker" toolid="${STD_MODULE_LINK}">
+<target id="systools" output="${LIBPREFIX}systools${DBG}" tool="linker" toolid="${STD_MODULE_LINK}">
   <ext value=".ndll" unless="mobile"/>
   <files id="systools" unless="macos"/>
   <files id="mac" if="macos"/>
