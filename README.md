@@ -1,7 +1,7 @@
-systools but fixed
+retools
 ========
 
-Yes i think im reviving an old lib
+___Systools, but fixed for newer versions.___
 
 fork of giuppe/systools for Haxe 4 and above
 
@@ -11,9 +11,10 @@ This includes the stdio definitions fix and the uncalled fix.
 
 ### Status ###
 The files are reupdated and are _mostly working_ for all platforms - which means that it should be working as well as normal systools.
+The files have been updated for newer Haxe versions. If it doesn't work, make a PR fixing the issue or put the issue in Github issues.
 
 ### How to use ###
-Git this repo using `haxelib git systools https://github.com/haya3218/systools`.
+Git this repo using `haxelib git systools https://github.com/haya3218/retools`.
 Once you've done that, if youre using normal haxe add `-lib systools` to your project.
 If youre using OpenFL on the other hand, see the instruction down below.
 
